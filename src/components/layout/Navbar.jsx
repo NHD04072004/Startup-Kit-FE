@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
@@ -32,9 +33,11 @@ export default function Navbar() {
           <button className="bg-white border border-[#FFCE23] text-black font-semibold px-3 py-1 rounded-md text-sm hover:bg-[#FFF9E0] transition-all duration-200">
             Đăng Ký
           </button>
-          <button className="bg-[#FFCE23] hover:bg-[#FFD600] text-black font-semibold px-3 py-1 rounded-md text-sm transition-all duration-200">
-            Đăng nhập
-          </button>
+          <Link to="/dangnhap">
+            <button className="bg-[#FFCE23] hover:bg-[#FFD600] text-black font-semibold px-3 py-1 rounded-md text-sm transition-all duration-200">
+              Đăng nhập
+            </button>
+          </Link>
         </div>
 
         {/* Mobile hamburger */}
@@ -66,9 +69,11 @@ export default function Navbar() {
             <button className="bg-white border border-[#FFCE23] text-black font-semibold px-3 py-1 rounded-md text-xs hover:bg-[#FFF9E0] transition-all duration-200 w-full">
               Đăng Ký
             </button>
-            <button className="bg-[#FFCE23] hover:bg-[#FFD600] text-black font-semibold px-3 py-1 rounded-md text-xs transition-all duration-200 w-full">
-              Đăng nhập
-            </button>
+            <Link to="/dangnhap">
+              <button className="bg-[#FFCE23] hover:bg-[#FFD600] text-black font-semibold px-3 py-1 rounded-md text-xs transition-all duration-200 w-full">
+                Đăng nhập
+              </button>
+            </Link>
           </div>
         </nav>
       )}
