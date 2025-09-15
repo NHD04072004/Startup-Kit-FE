@@ -1,7 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 export default function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
+  const navigate = useNavigate();
+  const handleRegister = () => {
+    navigate("/register");
+  };
 
   return (
     <header className="w-full bg-white shadow-md border-b border-gray-100 overflow-visible">
@@ -29,7 +34,7 @@ export default function Navbar() {
 
         {/* Desktop buttons */}
         <div className="hidden md:flex gap-3 ml-8">
-          <button className="bg-white border border-[#FFCE23] text-black font-semibold px-3 py-1 rounded-md text-sm hover:bg-[#FFF9E0] transition-all duration-200">
+          <button className="bg-white border border-[#FFCE23] text-black font-semibold px-3 py-1 rounded-md text-sm hover:bg-[#FFF9E0] transition-all duration-200" onClick={handleRegister}>
             Đăng Ký
           </button>
           <button className="bg-[#FFCE23] hover:bg-[#FFD600] text-black font-semibold px-3 py-1 rounded-md text-sm transition-all duration-200">
