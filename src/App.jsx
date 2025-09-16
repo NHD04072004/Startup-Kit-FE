@@ -6,6 +6,7 @@ import ProfileManagement from "./pages/ProfileManagement";
 import CreateProjectDashboard from "./pages/CreateProjectDashboard";
 import CustomProfileBuilder from "./pages/CustomProfileBuilder";
 import Connections from "./pages/Connections";
+import CustomProjectBuilder from "./pages/CustomProjectBuilder";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
       <Route path="/create-project" element={<CreateProjectDashboard />} />
   <Route path="/custom-profile-builder" element={<CustomProfileBuilder />} />
   <Route path="/connections" element={<Connections />} />
+  <Route path="/custom-project-builder" element={<CustomProjectBuilder />} />
     </Routes>
   );
 }

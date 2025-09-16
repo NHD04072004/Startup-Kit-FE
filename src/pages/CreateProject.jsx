@@ -35,9 +35,9 @@ function ProjectTemplateSelector({ onSelect }) {
                 onClick={() => {
                   if (item === "Chọn mẫu trống") {
                     if (navigate) {
-                      navigate("/custom-profile-builder");
+                      navigate("/custom-project-builder");
                     } else {
-                      window.location.href = "/custom-profile-builder";
+                      window.location.href = "/custom-project-builder";
                     }
                   } else {
                     onSelect(item);
