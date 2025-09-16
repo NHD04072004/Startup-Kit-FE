@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRobot } from "@fortawesome/free-solid-svg-icons";
+import { faRobot, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 function ProjectBasicInfoForm({ onNext }) {
   const [form, setForm] = useState({
     name: "",
@@ -10,6 +10,7 @@ function ProjectBasicInfoForm({ onNext }) {
     location: "",
     contact: ""
   });
+  const [showProjectProfileModal, setShowProjectProfileModal] = useState(false);
   return (
     <div>
       <div className="flex flex-col gap-6 mb-6 w-full max-w-xl mx-auto">
@@ -264,6 +265,7 @@ export default function CreateProject() {
   const [currentStep, setCurrentStep] = useState(0);
   const [selectedTemplate, setSelectedTemplate] = useState(null);
   const [showAI, setShowAI] = useState(true);
+  const [showProjectProfileModal, setShowProjectProfileModal] = useState(false);
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col px-6 py-6">
@@ -554,9 +556,11 @@ export default function CreateProject() {
                           <button className="bg-yellow-400 hover:bg-yellow-500 text-sm font-semibold px-6 py-3 rounded-lg shadow transition">
                             Tùy chỉnh hồ sơ
                           </button>
-                          <button className="bg-yellow-400 hover:bg-yellow-500 text-sm font-semibold px-6 py-3 rounded-lg shadow transition">
-                            Đăng thông tin dự án
-                          </button>
+
+                            <button className="bg-yellow-400 hover:bg-yellow-500 text-sm font-semibold px-6 py-3 rounded-lg shadow transition" onClick={() => setShowProjectProfileModal(true)}>
+                              Đăng thông tin dự án
+                            </button>
+
                         </div>
 
                         {/* Cột phải */}
@@ -598,10 +602,129 @@ export default function CreateProject() {
                       </div>
 
                       {/* Nút quay lại */}
+                    {/* Modal xem trước hồ sơ dự án */}
+                    {showProjectProfileModal && (
+                      <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
+                        <div className="bg-white rounded-2xl shadow-xl p-0 w-full max-w-3xl relative">
+                          {/* Header */}
+                          <div className="flex items-center justify-between px-8 pt-8 pb-2">
+                            <div>
+                              <h2 className="text-2xl font-bold text-gray-900">Edutech Platform</h2>
+                              <span className="inline-block mt-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-semibold">Đang phát triển</span>
+                              <span className="ml-3 text-xs text-gray-400">Cập nhật: 25/08/2025</span>
+                            </div>
+                            <button
+                              className="text-gray-400 hover:text-gray-700 text-2xl"
+                              onClick={() => setShowProjectProfileModal(false)}
+                            >
+                              &times;
+                            </button>
+                          </div>
+                          {/* Main content */}
+                          <div className="grid grid-cols-2 gap-6 px-8 pb-8">
+                            {/* Đội ngũ */}
+                            <div>
+                              <h4 className="font-semibold mb-3">Đội ngũ</h4>
+                              <div className="flex gap-4 mb-6">
+                                <div className="flex items-center gap-2">
+                                  <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="avatar" className="w-10 h-10 rounded-full" />
+                                  <div>
+                                    <div className="font-bold text-gray-800">Lê Tuấn Đạt <span className="bg-yellow-100 text-yellow-700 text-xs px-2 py-1 rounded ml-2">CEO</span></div>
+                                    <div className="text-xs text-gray-500">Founder & Leader</div>
+                                  </div>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                  <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="avatar" className="w-10 h-10 rounded-full" />
+                                  <div>
+                                    <div className="font-bold text-gray-800">Nguyễn An <span className="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded ml-2">Co-founder</span></div>
+                                    <div className="text-xs text-gray-500">Technical Lead</div>
+                                  </div>
+                                </div>
+                              </div>
+                              {/* Vấn đề & Giải pháp */}
+                              <div className="bg-white border rounded-xl p-5 mb-6">
+                                <div className="flex items-center gap-2 mb-2">
+                                  <span className="bg-red-100 text-red-500 rounded-full w-6 h-6 flex items-center justify-center"><svg width="16" height="16" fill="currentColor"><circle cx="8" cy="8" r="8"/></svg></span>
+                                  <span className="font-semibold text-gray-800">Vấn đề và Giải pháp</span>
+                                </div>
+                                <div className="mb-2">
+                                  <span className="font-bold text-gray-700">Vấn đề</span>
+                                  <div className="text-sm text-gray-700 mt-1">Hệ thống giáo dục truyền thống không đáp ứng được nhu cầu học tập cá nhân hóa và linh hoạt của học sinh trong thời đại số.</div>
+                                </div>
+                                <div>
+                                  <span className="font-bold text-gray-700">Giải pháp</span>
+                                  <div className="text-sm text-gray-700 mt-1">Nền tảng giáo dục trực tuyến với AI cá nhân hóa, cung cấp trải nghiệm học tập thích ứng và tương tác cao cho học sinh.</div>
+                                </div>
+                              </div>
+                              {/* Thị trường */}
+                              <div className="bg-white border rounded-xl p-5">
+                                <div className="flex items-center gap-2 mb-2">
+                                  <span className="bg-blue-100 text-blue-500 rounded-full w-6 h-6 flex items-center justify-center"><svg width="16" height="16" fill="currentColor"><rect width="16" height="16"/></svg></span>
+                                  <span className="font-semibold text-gray-800">Thị trường</span>
+                                </div>
+                                <div className="grid grid-cols-2 gap-4 mt-2">
+                                  <div>
+                                    <div className="text-xs text-gray-500 mb-1">Quy mô thị trường</div>
+                                    <div className="font-semibold text-gray-700">Thị trường EdTech toàn cầu</div>
+                                  </div>
+                                  <div>
+                                    <div className="text-xs text-gray-500 mb-1">Khách hàng mục tiêu</div>
+                                    <div className="font-semibold text-gray-700">Học sinh tại Việt Nam</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            {/* Tiến độ & Mô hình kinh doanh */}
+                            <div className="flex flex-col gap-6">
+                              {/* Tiến độ */}
+                              <div className="bg-white border rounded-xl p-5 mb-6">
+                                <div className="flex items-center gap-2 mb-2">
+                                  <span className="bg-purple-100 text-purple-500 rounded-full w-6 h-6 flex items-center justify-center"><svg width="16" height="16" fill="currentColor"><rect width="16" height="16"/></svg></span>
+                                  <span className="font-semibold text-gray-800">Tiến độ</span>
+                                </div>
+                                <div className="mb-2">
+                                  <span className="font-bold text-gray-700">Giai đoạn hiện tại</span>
+                                  <div className="text-sm text-gray-700 mt-1">MVP Development Phase</div>
+                                </div>
+                                <div>
+                                  <span className="font-bold text-gray-700">Các mốc quan trọng</span>
+                                  <ul className="mt-2 space-y-1 text-sm">
+                                    <li><span className="inline-block w-2 h-2 rounded-full bg-yellow-400 mr-2"></span>Q2 2025: Hoàn thành nghiên cứu thị trường</li>
+                                    <li><span className="inline-block w-2 h-2 rounded-full bg-yellow-400 mr-2"></span>Q3 2025: Phát triển MVP (đang thực hiện)</li>
+                                    <li><span className="inline-block w-2 h-2 rounded-full bg-gray-300 mr-2"></span>Q4 2025: Beta testing với 1000 users</li>
+                                    <li><span className="inline-block w-2 h-2 rounded-full bg-gray-300 mr-2"></span>Q1 2026: Official launch</li>
+                                  </ul>
+                                </div>
+                              </div>
+                              {/* Mô hình kinh doanh */}
+                              <div className="bg-white border rounded-xl p-5">
+                                <div className="flex items-center gap-2 mb-2">
+                                  <span className="bg-green-100 text-green-500 rounded-full w-6 h-6 flex items-center justify-center"><svg width="16" height="16" fill="currentColor"><rect width="16" height="16"/></svg></span>
+                                  <span className="font-semibold text-gray-800">Mô hình Kinh doanh</span>
+                                </div>
+                                <div>
+                                  <span className="font-bold text-gray-700">Nguồn doanh thu</span>
+                                  <div className="text-sm text-gray-700 mt-1">Subscription Model<br />Gói học phí hàng tháng/năm</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          {/* Footer */}
+                          <div className="flex items-center justify-end gap-4 px-8 pb-8">
+                            <button className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold px-6 py-3 rounded-lg" onClick={() => setShowProjectProfileModal(false)}>Đóng</button>
+                            <button className="bg-yellow-400 hover:bg-yellow-500 text-white font-semibold px-6 py-3 rounded-lg flex items-center gap-2">
+                              <FontAwesomeIcon icon={faPaperPlane} className="w-5 h-5" />
+                              Đăng dự án
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                       <div className="flex justify-start mt-6">
                         <button
                           className="bg-gray-100 hover:bg-gray-200 text-sm font-semibold px-6 py-3 rounded-lg shadow transition"
-                          onClick={() => setCurrentStep(6)}
+                          onClick={() => { setCurrentStep(6); setShowProjectProfileModal(true); }}
+                          onClickCapture={() => setShowProjectProfileModal(false)}
                         >
                           Quay lại
                         </button>
