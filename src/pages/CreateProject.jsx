@@ -1,220 +1,8 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRobot, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-function ProjectBasicInfoForm({ onNext }) {
-  const [form, setForm] = useState({
-    name: "",
-    field: "",
-    stage: "",
-    year: "",
-    location: "",
-    contact: ""
-  });
-  const [showProjectProfileModal, setShowProjectProfileModal] = useState(false);
-  return (
-    <div>
-      <div className="flex flex-col gap-6 mb-6 w-full max-w-xl mx-auto">
-        <div>
-          <label className="block text-sm font-medium mb-2">Tên dự án</label>
-          <input className="w-full border rounded px-4 py-2" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} placeholder="Tên dự án" />
-        </div>
-        <div>
-          <label className="block text-sm font-medium mb-2">Lĩnh vực</label>
-          <input className="w-full border rounded px-4 py-2" value={form.field} onChange={e => setForm({ ...form, field: e.target.value })} placeholder="Lĩnh vực" />
-        </div>
-        <div>
-          <label className="block text-sm font-medium mb-2">Giai đoạn</label>
-          <input className="w-full border rounded px-4 py-2" value={form.stage} onChange={e => setForm({ ...form, stage: e.target.value })} placeholder="Giai đoạn" />
-        </div>
-        <div>
-          <label className="block text-sm font-medium mb-2">Năm thành lập</label>
-          <input className="w-full border rounded px-4 py-2" value={form.year} onChange={e => setForm({ ...form, year: e.target.value })} placeholder="Năm thành lập" />
-        </div>
-        <div>
-          <label className="block text-sm font-medium mb-2">Trụ sở</label>
-          <input className="w-full border rounded px-4 py-2" value={form.location} onChange={e => setForm({ ...form, location: e.target.value })} placeholder="Trụ sở" />
-        </div>
-        <div>
-          <label className="block text-sm font-medium mb-2">Liên hệ</label>
-          <input className="w-full border rounded px-4 py-2" value={form.contact} onChange={e => setForm({ ...form, contact: e.target.value })} placeholder="Email/SĐT" />
-        </div>
-      </div>
-      <div className="flex justify-end">
-        <button className="bg-yellow-400 hover:bg-yellow-500 text-sm font-semibold px-6 py-3 rounded" onClick={onNext}>
-          Tiếp theo
-        </button>
-      </div>
-    </div>
-  );
-}
-
-
-// Component: Các bước tạo hồ sơ
-function ProjectSteps({ currentStep, onStepClick }) {
-  const steps = [
-    "Chọn mẫu hồ sơ",
-    "Nhập thông tin cơ bản",
-    "Tải lên logo/hình ảnh",
-    "Xác định ý tưởng/vấn đề",
-    "Đề xuất giải pháp/sản phẩm",
-    "Phân tích thị trường đối thủ",
-    "Xây dựng mô hình kinh doanh",
-    "Hoàn thành và xác nhận"
-  ];
-  const progress = Math.round(((currentStep + 1) / steps.length) * 100);
-  return (
-    <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-6">
-      <h3 className="text-base font-semibold mb-4">Các bước tạo hồ sơ</h3>
-      {/* Thanh tiến trình */}
-      <div className="w-full bg-gray-200 rounded-full h-3 mb-4">
-        <div
-          className="bg-yellow-400 h-3 rounded-full transition-all"
-          style={{ width: `${progress}%` }}
-        ></div>
-      </div>
-      <p className="text-sm text-gray-600 mb-4">
-        Tiến độ: <span className="font-bold text-yellow-600">{progress}%</span>
-      </p>
-      <ol className="space-y-3">
-        {steps.map((step, idx) => (
-          <li key={idx}>
-            <button
-              className={`w-full flex items-center gap-3 text-sm rounded px-3 py-2 border transition ${
-                currentStep === idx
-                  ? "bg-yellow-400 text-white border-yellow-400 font-bold"
-                  : "bg-white text-gray-700 border-gray-200 hover:bg-yellow-50"
-              }`}
-              onClick={() => onStepClick(idx)}
-            >
-              <span
-                className={`w-6 h-6 flex items-center justify-center rounded-full border text-xs ${
-                  currentStep === idx
-                    ? "bg-white text-yellow-500 border-yellow-400"
-                    : "bg-gray-100 text-gray-400 border-gray-300"
-                }`}
-              >
-                {idx + 1}
-              </span>
-              <span>{step}</span>
-            </button>
-          </li>
-        ))}
-      </ol>
-    </div>
-  );
-}
-
-// Component: Hoạt động gần đây
-
-
-function RecentActivitySidebar() {
-  const [showHistory, setShowHistory] = useState(false);
-  const activities = [
-    { name: "Lê Tuấn Đạt", time: "09:45" },
-    { name: "Nguyễn An", time: "10:15" },
-    { name: "Mai Linh", time: "10:45" },
-    { name: "Trần Minh", time: "09:30" }
-  ];
-  const history = [
-    { user: "Lê Tuấn Đạt", action: "Chỉnh sửa mô tả dự án", time: "09:45" },
-    { user: "Nguyễn An", action: "Thêm thành viên", time: "10:15" },
-    { user: "Mai Linh", action: "Cập nhật tiến độ", time: "10:45" },
-    { user: "Trần Minh", action: "Xóa tài liệu cũ", time: "09:30" }
-  ];
-  return (
-    <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-6">
-      <h3 className="text-base font-semibold mb-3">Hoạt động gần đây</h3>
-      <ul className="space-y-2 mb-3">
-        {activities.map((a, idx) => (
-          <li key={idx} className="flex items-center gap-2 text-sm">
-            <span className="w-3 h-3 rounded-full bg-yellow-400 inline-block"></span>
-            <span className="font-medium text-gray-700">{a.name}</span>
-            <span className="text-gray-400 ml-auto">{a.time}</span>
-          </li>
-        ))}
-      </ul>
-      <button className="w-full bg-yellow-400 hover:bg-yellow-500 text-sm font-semibold rounded py-2" onClick={() => setShowHistory(true)}>
-        Xem tất cả
-      </button>
-
-      {/* Modal lịch sử chỉnh sửa */}
-      {showHistory && (
-        <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
-            <h3 className="text-lg font-bold mb-4">Lịch sử chỉnh sửa dự án</h3>
-            <ul className="space-y-3 mb-4">
-              {history.map((h, idx) => (
-                <li key={idx} className="text-sm flex flex-col">
-                  <span className="font-semibold text-gray-800">{h.user}</span>
-                  <span className="text-gray-600">{h.action}</span>
-                  <span className="text-gray-400 text-xs">{h.time}</span>
-                </li>
-              ))}
-            </ul>
-            <button className="w-full bg-yellow-400 hover:bg-yellow-500 text-sm font-semibold rounded py-2" onClick={() => setShowHistory(false)}>
-              Đóng
-            </button>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
-
-
-// Component: Trợ lý AI
-function AiAssistantSidebar() {
-  const [input, setInput] = useState("");
-  const [messages, setMessages] = useState([
-    { type: "ai", text: "Xin chào! Tôi là trợ lý AI giúp bạn phân tích và gợi ý cho hồ sơ khởi nghiệp của bạn." },
-    { type: "ai", text: "Để khởi tạo hồ sơ, vui lòng nhập các thông tin dự án, giải pháp, mô hình kinh doanh, v.v." }
-  ]);
-  const recentFeedback = [
-    "Phân tích mô hình kinh doanh",
-    "Gợi ý cải tiến sản phẩm",
-    "Xem gợi ý"
-  ];
-  const handleSend = () => {
-    if (input.trim()) {
-      setMessages([...messages, { type: "user", text: input }]);
-      setInput("");
-    }
-  };
-  return (
-    <div className="flex flex-col h-full">
-      <div className="mb-2">
-        <h3 className="text-base font-bold mb-1">Trợ lý AI</h3>
-        <div className="text-xs text-gray-600 mb-2">Tôi sẽ hỗ trợ bạn phân tích và đưa ra giải pháp cho hồ sơ khởi nghiệp.</div>
-      </div>
-      <div className="flex-1 bg-gray-50 rounded border border-gray-200 p-3 mb-2 overflow-y-auto">
-        {messages.map((msg, idx) => (
-          <div key={idx} className={`mb-2 flex ${msg.type === "user" ? "justify-end" : "justify-start"}`}>
-            <span className={`inline-block px-3 py-2 rounded-lg text-xs ${msg.type === "ai" ? "bg-white text-gray-700 border border-gray-200" : "bg-yellow-400 text-white"}`}>{msg.text}</span>
-          </div>
-        ))}
-      </div>
-      <div className="flex gap-2 mb-2">
-        <input
-          className="flex-1 border border-gray-300 rounded px-3 py-2 text-sm"
-          placeholder="Nhập ý kiến..."
-          value={input}
-          onChange={e => setInput(e.target.value)}
-          onKeyDown={e => e.key === 'Enter' && handleSend()}
-        />
-        <button className="bg-yellow-400 hover:bg-yellow-500 text-sm font-semibold px-4 py-2 rounded" onClick={handleSend}>
-          Gửi
-        </button>
-      </div>
-      <div className="text-xs text-gray-500 mb-1 font-semibold">Phản hồi gần đây:</div>
-      <ul className="text-xs text-gray-600 mb-2">
-        {recentFeedback.map((fb, idx) => (
-          <li key={idx} className="mb-1">- {fb}</li>
-        ))}
-      </ul>
-      <div className="text-xs text-blue-500 underline cursor-pointer">Xem gợi ý chi tiết</div>
-    </div>
-  );
-}
+import ProjectBasicInfoForm from "../components/project/ProjectBasicInfoForm";
+import ProjectSteps from "../components/project/ProjectSteps";
+import RecentActivitySidebar from "../components/project/RecentActivitySidebar";
+import AiAssistantSidebar from "../components/project/AiAssistantSidebar";
 
 // Component: Chọn mẫu hồ sơ
 function ProjectTemplateSelector({ onSelect }) {
@@ -223,6 +11,7 @@ function ProjectTemplateSelector({ onSelect }) {
     { type: "Trạng trắng", items: ["Chọn mẫu trống"] }
   ];
 
+  const navigate = window.reactRouterNavigate || null;
   return (
     <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-8 w-full">
       <div className="flex items-center justify-between mb-4">
@@ -243,7 +32,17 @@ function ProjectTemplateSelector({ onSelect }) {
                     ? "text-yellow-600 border-yellow-400"
                     : "text-gray-700 border-gray-200"
                 }`}
-                onClick={() => onSelect(item)}
+                onClick={() => {
+                  if (item === "Chọn mẫu trống") {
+                    if (navigate) {
+                      navigate("/custom-profile-builder");
+                    } else {
+                      window.location.href = "/custom-profile-builder";
+                    }
+                  } else {
+                    onSelect(item);
+                  }
+                }}
               >
                 {item}
               </button>
