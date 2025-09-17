@@ -93,7 +93,7 @@ export default function InvestorList() {
   return (
     <section className="max-w-6xl mx-auto mt-10 text-center px-4 sm:px-6">
       <h2 className="text-2xl md:text-3xl font-bold mb-2">
-        💰 Nhà đầu tư & Quỹ đầu tư tiêu biểu
+         Nhà đầu tư & Quỹ đầu tư tiêu biểu
       </h2>
       <p className="text-gray-500 mb-6 text-sm md:text-base">
         Khám phá các nhà đầu tư cá nhân và quỹ đầu tư nổi bật
