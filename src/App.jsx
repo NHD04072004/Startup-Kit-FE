@@ -1,5 +1,7 @@
+import { Routes, Route } from "react-router";
 import { Routes, Route } from "react-router-dom";
 import TrangChu from "./pages/TrangChu";
+import Register from "./pages/Register";
 import DangNhap from "./pages/DangNhap";
 import Dashboard from "./pages/Dashboard";
 import ProfileManagement from "./pages/ProfileManagement";
