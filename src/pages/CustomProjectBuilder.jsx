@@ -290,7 +290,6 @@ export default CustomProjectBuilder;
           >
             ← Quay lại tạo hồ sơ
           </button>
-          <h2 className="text-2xl font-bold text-yellow-500">Custom Dự Án (Framer Motion + Dnd Kit)</h2>
           <div></div>
         </div>
         <div className="flex justify-center">

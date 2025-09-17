@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 import sidebar_register from "../assets/images/sidebar_register.png";
 
@@ -32,9 +33,9 @@ const Register = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <main className="flex-1 bg-gradient-to-b from-[#FFCE23]/10 to-white">
-        <div className="container flex">
-          <div className="max-w-2xl mx-auto">
+      <main className="flex-1 bg-gradient-to-b from-[#FFCE23]/10 to-white flex items-center justify-end">
+        <div className="container flex items-center justify-end">
+          <div className="max-w-md w-full mx-auto">
             {/* Header */}
             <img
               src={logo}
@@ -45,7 +46,7 @@ const Register = () => {
             />
             {/* Registration Form */}
             <div className="bg-white rounded-lg shadow-lg border border-gray-100 p-6 md:p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 {/* Full Name */}
                 <div>
                   <input
@@ -262,12 +263,12 @@ const Register = () => {
                 {/* Login Link */}
                 <div className="text-center text-sm text-gray-600">
                   Đã có tài khoản?{" "}
-                  <a
-                    href="#"
+                  <Link
+                    to="/dangnhap"
                     className="text-[#FFCE23] hover:underline font-medium"
                   >
                     Đăng nhập ngay
-                  </a>
+                  </Link>
                 </div>
               </form>
             </div>

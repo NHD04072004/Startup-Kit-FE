@@ -1,24 +1,14 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
 export default function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
   const location = useLocation();
-
-  // Giả lập trạng thái đăng nhập, thay bằng logic thực tế của bạn
-  const isLoggedIn = false;
-import { useState } from "react";
-import { useNavigate } from "react-router";
-
-export default function Navbar() {
-  const [showMenu, setShowMenu] = useState(false);
-  const location = useLocation();
-
-  // Giả lập trạng thái đăng nhập, thay bằng logic thực tế của bạn
-  const isLoggedIn = false;
   const navigate = useNavigate();
+  // Giả lập trạng thái đăng nhập, thay bằng logic thực tế của bạn
+  const isLoggedIn = false;
   const handleRegister = () => {
     navigate("/register");
   };
@@ -48,10 +38,16 @@ export default function Navbar() {
           >
             Khởi tạo dự án
           </Link>
-          <span className="cursor-pointer hover:text-[#FFCE23] transition-colors duration-200">
+          <span
+            className="cursor-pointer hover:text-[#FFCE23] transition-colors duration-200"
+            onClick={() => window.location.href = '/coming-soon'}
+          >
             Khám phá
           </span>
-          <span className="cursor-pointer hover:text-[#FFCE23] transition-colors duration-200">
+          <span
+            className="cursor-pointer hover:text-[#FFCE23] transition-colors duration-200"
+            onClick={() => window.location.href = '/coming-soon'}
+          >
             Nền tảng của chúng tôi
           </span>
         </nav>
@@ -60,7 +56,7 @@ export default function Navbar() {
         <div className="hidden md:flex gap-3 ml-8 items-center">
           {!isLoggedIn ? (
             <>
-              <button className="bg-white border border-[#FFCE23] text-black font-semibold px-3 py-1 rounded-md text-sm hover:bg-[#FFF9E0] transition-all duration-200">
+              <button className="bg-white border border-[#FFCE23] text-black font-semibold px-3 py-1 rounded-md text-sm hover:bg-[#FFF9E0] transition-all duration-200" onClick={handleRegister}>
                 Đăng Ký
               </button>
               <Link to="/dangnhap">
@@ -72,14 +68,6 @@ export default function Navbar() {
           ) : (
             <FontAwesomeIcon icon={faUserCircle} className="text-3xl text-[#374151] cursor-pointer" />
           )}
-        {/* Desktop buttons */}
-        <div className="hidden md:flex gap-3 ml-8">
-          <button className="bg-white border border-[#FFCE23] text-black font-semibold px-3 py-1 rounded-md text-sm hover:bg-[#FFF9E0] transition-all duration-200" onClick={handleRegister}>
-            Đăng Ký
-          </button>
-          <button className="bg-[#FFCE23] hover:bg-[#FFD600] text-black font-semibold px-3 py-1 rounded-md text-sm transition-all duration-200">
-            Đăng nhập
-          </button>
         </div>
 
         {/* Mobile hamburger */}
@@ -118,7 +106,7 @@ export default function Navbar() {
           <div className="flex flex-col gap-2 mt-3 items-center">
             {!isLoggedIn ? (
               <>
-                <button className="bg-white border border-[#FFCE23] text-black font-semibold px-3 py-1 rounded-md text-xs hover:bg-[#FFF9E0] transition-all duration-200 w-full">
+                <button className="bg-white border border-[#FFCE23] text-black font-semibold px-3 py-1 rounded-md text-xs hover:bg-[#FFF9E0] transition-all duration-200 w-full" onClick={handleRegister}>
                   Đăng Ký
                 </button>
                 <Link to="/dangnhap">

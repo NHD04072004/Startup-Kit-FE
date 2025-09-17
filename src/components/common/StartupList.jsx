@@ -4,39 +4,60 @@ import StartupCard from "./StartupCard";
 export default function StartupList() {
   const startups = [
     {
-      img: "/src/assets/techflow.png",
+      img: "https://logo.clearbit.com/stripe.com",
       title: "TechFlow",
       desc: "Tự động hóa quy trình bằng AI",
       tag: "SaaS",
       stage: "Series A",
     },
     {
-      img: "/src/assets/financehub.png",
+      img: "https://logo.clearbit.com/wise.com",
       title: "FinanceHub",
       desc: "Giải pháp tài chính thông minh",
       tag: "Fintech",
       stage: "Seed",
     },
     {
-      img: "/src/assets/eduspace.png",
+      img: "https://logo.clearbit.com/khanacademy.org",
       title: "EduSpace",
       desc: "Nền tảng học trực tuyến",
       tag: "Edtech",
       stage: "Pre-seed",
     },
     {
-      img: "/src/assets/healthplus.png",
+      img: "https://logo.clearbit.com/healthline.com",
       title: "HealthPlus",
       desc: "Giải pháp y tế số",
       tag: "Healthtech",
       stage: "Series B",
     },
     {
-      img: "/src/assets/greentech.png",
+      img: "https://logo.clearbit.com/tesla.com",
       title: "GreenTech",
       desc: "Khởi nghiệp năng lượng xanh",
       tag: "Energy",
       stage: "Seed",
+    },
+    {
+      img: "https://logo.clearbit.com/airbnb.com",
+      title: "StayConnect",
+      desc: "Nền tảng kết nối chỗ ở toàn cầu",
+      tag: "Travel",
+      stage: "Series A",
+    },
+    {
+      img: "https://logo.clearbit.com/duolingo.com",
+      title: "LinguaPro",
+      desc: "Ứng dụng học ngôn ngữ thông minh",
+      tag: "Edtech",
+      stage: "Seed",
+    },
+    {
+      img: "https://logo.clearbit.com/robinhood.com",
+      title: "Investly",
+      desc: "Đầu tư dễ dàng cho mọi người",
+      tag: "Fintech",
+      stage: "Series B",
     },
   ];
 

@@ -9,21 +9,21 @@ import {
 export default function CompetitionList() {
   const competitions = [
     {
-      img: "/src/assets/competition1.png",
+      img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80",
       title: "Hackathon 2025",
       desc: "Cuộc thi công nghệ cho startup trẻ",
       date: "April 10–12, 2025",
       location: "Hà Nội",
     },
     {
-      img: "/src/assets/competition2.png",
+      img: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80",
       title: "AI Challenge",
       desc: "Thử thách AI sáng tạo",
       date: "June 5–7, 2025",
       location: "TP. Hồ Chí Minh",
     },
     {
-      img: "/src/assets/competition3.png",
+      img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80",
       title: "Fintech Innovation",
       desc: "Đổi mới tài chính số",
       date: "August 20–22, 2025",
