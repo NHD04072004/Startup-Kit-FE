@@ -19,7 +19,7 @@ export default function Navbar() {
         {/* Logo với link về trang chủ */}
         <Link to="/">
           <img
-            src="src/assets/images/logo.png"
+            src="../src/assets/images/logo.png"
             alt="Logo"
             className="h-12 md:h-16 w-auto object-contain origin-left cursor-pointer"
             style={{ transform: "scale(1.8) translateX(12px)" }}
