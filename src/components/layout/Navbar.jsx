@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
-import logo from "../../assets/images/logo.png"; 
+import logo from "../assets/images/logo.png"; 
 
 export default function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
