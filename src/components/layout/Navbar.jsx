@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
+import logo from "../../assets/images/logo.png"; 
 
 export default function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
@@ -19,7 +20,7 @@ export default function Navbar() {
         {/* Logo với link về trang chủ */}
         <Link to="/">
           <img
-            src="../src/assets/images/logo.png"
+            src={logo}
             alt="Logo"
             className="h-12 md:h-16 w-auto object-contain origin-left cursor-pointer"
             style={{ transform: "scale(1.8) translateX(12px)" }}

@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import logo2 from "../../assets/images/logo-2.svg"; 
 
 export default function Footer() {
   return (
@@ -7,7 +8,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start px-4 gap-8">
         {/* Logo và slogan */}
         <div className="flex flex-col items-start min-w-[140px] mb-6 md:mb-0">
-          <img src="../src/assets/images/logo-2.svg" alt="StartUpKit" className="w-24 md:w-32 mb-2" />
+          <img src={logo2} alt="StartUpKit" className="w-24 md:w-32 mb-2" />
           <span className="text-xs md:text-sm">Xây dựng tương lai của sự hợp tác khởi nghiệp</span>
         </div>
         {/* Nền tảng */}
